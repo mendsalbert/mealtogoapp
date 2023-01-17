@@ -16,6 +16,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
 
   const Title = styled.Text`
     color: ${(props) => props.theme.colors.ui.primary};
+    font-family: ${(props) => props.theme.fonts.heading}
     padding-top: 10px;
     padding-bottom: 5px;
     font-size: 20px;
