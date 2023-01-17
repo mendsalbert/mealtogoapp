@@ -1,7 +1,9 @@
 import React from "react";
 import { Text } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
+import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
+import star from "../../../../assets/star";
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
@@ -27,6 +29,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
       <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
       <Card.Content>
         <Title>{name}</Title>
+        <SvgXml xml={star} width={20} height={20} />
         <Text variant="bodyMedium">Card content</Text>
       </Card.Content>
       <Card.Actions>
