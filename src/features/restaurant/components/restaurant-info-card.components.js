@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
+import styled from "styled-components/native";
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
@@ -12,11 +13,19 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     isCloseTemporarily = false,
     rating = 3,
   } = restaurant;
+
+  const Title = styled.Text`
+    color: ${(props) => props.theme.colors.ui.primary};
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 20px;
+  `;
+
   return (
     <Card>
       <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
       <Card.Content>
-        <Text variant="titleLarge">Card title</Text>
+        <Title>{name}</Title>
         <Text variant="bodyMedium">Card content</Text>
       </Card.Content>
       <Card.Actions>
