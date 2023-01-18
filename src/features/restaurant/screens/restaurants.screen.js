@@ -13,12 +13,12 @@ export const RestaurantScreen = () => {
   const SearchBar = styled(Searchbar)`
     width: 100%;
     padding: 0;
-    borderradius: 30px;
-    backgroundcolor: white;
+    border-radius: 30px;
+    background-color: white;
   `;
 
   const SearchWrapper = styled.View`
-    backgroundcolor: white;
+    background-color: white;
     padding: 10px;
   `;
 
