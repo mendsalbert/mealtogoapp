@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, Image } from "react-native";
+import { Image } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typography/text.component";
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
     name = "chef akwasi",
@@ -44,7 +45,9 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     <Card>
       <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
       <Card.Content>
-        <Title>{name}</Title>
+        <Spacer position="top" size="large" />
+        <Text variant="label">{name}</Text>
+        <Spacer position="bottom" size="large" />
         <Section>
           <Rating>
             {ratingArray.map((stars) => (
@@ -53,15 +56,17 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
           </Rating>
           <SectionEnd>
             {isCloseTemporarily && (
-              <Text style={{ color: "red" }}>CLOSED TEMPORARILY</Text>
+              <Text variant="caption">CLOSED TEMPORARILY</Text>
             )}
-            <Spacer variant={"left.large"} />
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Spacer variant={"left.large"} />
-            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
-        <Text variant="bodyMedium">{address}</Text>
+        <Text variant="body">{address}</Text>
       </Card.Content>
     </Card>
   );
