@@ -7,6 +7,12 @@ import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import {
+  Rating,
+  Section,
+  Title,
+  SectionEnd,
+} from "./restaurant-style-info-card.components";
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
     name = "chef akwasi",
@@ -19,27 +25,6 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     isOpenNow = true,
   } = restaurant;
 
-  const Title = styled.Text`
-    color: ${(props) => props.theme.colors.ui.primary};
-    font-family: ${(props) => props.theme.fonts.heading}
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-size: 20px;
-  `;
-
-  const Rating = styled.View`
-    flex-direction: row;
-  `;
-
-  const Section = styled.View`
-    flex-direction: row;
-    justify-content: space-between;
-  `;
-
-  const SectionEnd = styled.View`
-    flex-direction: row;
-    justify-content: space-evenly;
-  `;
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <Card>
