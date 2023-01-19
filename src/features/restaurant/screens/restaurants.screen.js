@@ -54,7 +54,7 @@ export const RestaurantScreen = () => {
           keyExtractor={(item) => {
             item.name;
           }}
-          contentContainerStyle={{ padding: 16, marginTop: 10 }}
+          contentContainerStyle={{ padding: 16, marginTop: 16 }}
         />
       </MainWrapper>
     </SafeAreaViewWrapper>
