@@ -12,6 +12,7 @@ import {
   Section,
   Title,
   SectionEnd,
+  RestaurantCardCover,
 } from "./restaurant-style-info-card.components";
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
@@ -27,8 +28,8 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
-    <Card>
-      <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+    <Card style={{ marginBottom: 20 }}>
+      <RestaurantCardCover source={{ uri: "https://picsum.photos/700" }} />
       <Card.Content>
         <Spacer position="top" size="large" />
         <Text variant="label">{name}</Text>

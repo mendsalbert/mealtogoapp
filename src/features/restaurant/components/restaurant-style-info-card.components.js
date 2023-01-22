@@ -1,11 +1,16 @@
 import styled from "styled-components/native";
-import Card from "react-native-paper";
+import { Card } from "react-native-paper";
 export const Title = styled.Text`
 color: ${(props) => props.theme.colors.ui.primary};
 font-family: ${(props) => props.theme.fonts.heading}
 padding-top: 10px;
 padding-bottom: 5px;
 font-size: 20px;
+`;
+
+export const RestaurantCardCover = styled(Card.Cover)`
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 export const Rating = styled.View`
