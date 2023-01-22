@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-
+import Card from "react-native-paper";
 export const Title = styled.Text`
 color: ${(props) => props.theme.colors.ui.primary};
 font-family: ${(props) => props.theme.fonts.heading}
