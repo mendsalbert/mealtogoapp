@@ -2,6 +2,9 @@ import * as React from "react";
 import { ThemeProvider } from "styled-components/native";
 import { RestaurantScreen } from "./src/features/restaurant/screens/restaurants.screen";
 import { theme } from "./src/infrastructure/theme";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import {
   useFonts as oswaldloaded,
   Oswald_400Regular,
@@ -21,9 +24,17 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
+
+  const Tab = createBottomTabNavigator();
+
   return (
     <ThemeProvider theme={theme}>
-      <RestaurantScreen />
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Restaurant" component={RestaurantScreen} />
+          {/* <RestaurantScreen /> */}
+        </Tab.Navigator>
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
