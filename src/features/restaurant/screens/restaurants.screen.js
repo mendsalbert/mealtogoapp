@@ -36,7 +36,9 @@ export const RestaurantScreen = () => {
       <MainWrapper>
         <FlatList
           data={restaurantContext.restaurants}
-          renderItem={() => <RestaurantInfo />}
+          renderItem={({ item }) => {
+            return <RestaurantInfo restaurant={item} />;
+          }}
           keyExtractor={(item) => {
             item.name;
           }}

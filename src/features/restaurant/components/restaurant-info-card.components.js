@@ -14,7 +14,7 @@ import {
   SectionEnd,
   RestaurantCardCover,
 } from "./restaurant-style-info-card.components";
-export const RestaurantInfo = ({ restaurant = {} }) => {
+export const RestaurantInfo = ({ restaurant }) => {
   const {
     name = "chef akwasi",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -29,7 +29,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <Card style={{ marginBottom: 20 }}>
-      <RestaurantCardCover source={{ uri: "https://picsum.photos/700" }} />
+      <RestaurantCardCover source={{ uri: photos[0] }} />
       <Card.Content>
         <Spacer position="top" size="large" />
         <Text variant="label">{name}</Text>
