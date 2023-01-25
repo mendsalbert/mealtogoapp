@@ -5,6 +5,8 @@ import { Searchbar } from "react-native-paper";
 import { RestaurantInfo } from "../components/restaurant-info-card.components";
 import styled from "styled-components/native";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
+import { ActivityIndicator, MD2Colors } from "react-native-paper";
+
 const SafeAreaViewWrapper = styled(SafeAreaView)`
   flex: 1;
 `;
@@ -26,10 +28,23 @@ const MainWrapper = styled.View`
   padding: 10px;
 `;
 
+const Loading = styled(ActivityIndicator)`
+  margin-left: -25px;
+`;
+const LoadingContainer = styled.View`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`;
 export const RestaurantScreen = () => {
   const restaurantContext = useContext(RestaurantsContext);
   return (
     <SafeAreaViewWrapper>
+      {true && (
+        <LoadingContainer>
+          <Loading size={50} animating={true} color={Colors.blue300} />
+        </LoadingContainer>
+      )}
       <SearchWrapper>
         <SearchBar />
       </SearchWrapper>
