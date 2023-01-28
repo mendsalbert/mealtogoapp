@@ -40,11 +40,11 @@ export const RestaurantScreen = () => {
   const restaurantContext = useContext(RestaurantsContext);
   return (
     <SafeAreaViewWrapper>
-      {/* {true && (
+      {restaurantContext.isLoading && (
         <LoadingContainer>
           <Loading size={50} animating={true} color={MD2Colors.blue800} />
         </LoadingContainer>
-      )} */}
+      )}
       <SearchWrapper>
         <SearchBar />
       </SearchWrapper>
