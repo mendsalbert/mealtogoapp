@@ -17,6 +17,8 @@ import {
   Lato_400Regular,
 } from "@expo-google-fonts/lato";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
+
 export default function App() {
   const [oswaldLoaded] = oswaldloaded({
     Oswald_400Regular,
@@ -42,36 +44,36 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <RestaurantsContextProvider>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
+      <LocationContextProvider>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
 
-                if (route.name === "Restaurant") {
-                  iconName = focused
-                    ? "ios-restaurant-sharp"
-                    : "ios-restaurant-outline";
-                } else if (route.name === "Maps") {
-                  iconName = focused ? "map" : "map";
-                } else if (route.name === "Settings") {
-                  iconName = focused ? "settings" : "settings";
-                }
-                // You can return any component that you like here!
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: "tomato",
-              tabBarInactiveTintColor: "gray",
-            })}
-          >
-            <Tab.Screen name="Restaurant" component={RestaurantScreen} />
-            <Tab.Screen name="Maps" component={Maps} />
-            <Tab.Screen name="Settings" component={Settings} />
-            {/* <RestaurantScreen /> */}
-          </Tab.Navigator>
-        </NavigationContainer>
-      </RestaurantsContextProvider>
+                  if (route.name === "Restaurant") {
+                    iconName = focused
+                      ? "ios-restaurant-sharp"
+                      : "ios-restaurant-outline";
+                  } else if (route.name === "Maps") {
+                    iconName = focused ? "map" : "map";
+                  } else if (route.name === "Settings") {
+                    iconName = focused ? "settings" : "settings";
+                  }
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: "tomato",
+                tabBarInactiveTintColor: "gray",
+              })}
+            >
+              <Tab.Screen name="Restaurant" component={RestaurantScreen} />
+              <Tab.Screen name="Maps" component={Maps} />
+              <Tab.Screen name="Settings" component={Settings} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
+      </LocationContextProvider>
     </ThemeProvider>
   );
 }
