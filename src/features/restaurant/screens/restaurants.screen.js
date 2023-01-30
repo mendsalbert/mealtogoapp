@@ -11,18 +11,6 @@ const SafeAreaViewWrapper = styled(SafeAreaView)`
   flex: 1;
 `;
 
-const SearchBar = styled(Searchbar)`
-  width: 100%;
-  padding: 0;
-  border-radius: 30px;
-  background-color: white;
-`;
-
-const SearchWrapper = styled.View`
-  background-color: white;
-  padding: 10px;
-`;
-
 const MainWrapper = styled.View`
   flex: 1;
   padding: 10px;
@@ -45,9 +33,7 @@ export const RestaurantScreen = () => {
           <Loading size={50} animating={true} color={MD2Colors.blue800} />
         </LoadingContainer>
       )}
-      <SearchWrapper>
-        <SearchBar />
-      </SearchWrapper>
+      <Search />
       <MainWrapper>
         <FlatList
           data={restaurantContext.restaurants}
