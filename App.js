@@ -37,7 +37,7 @@ export default function App() {
   };
 
   const Settings = () => {
-    return <Text>Settings</Text>;
+    return <Text>Setting</Text>;
   };
 
   const Tab = createBottomTabNavigator();
