@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StatusBar } from "expo-status-bar";
-import { FlatList, Text, View, SafeAreaView } from "react-native";
+import { FlatList, Text, View, SafeAreaView, Pressable } from "react-native";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfo } from "../components/restaurant-info-card.components";
 import styled from "styled-components/native";
@@ -25,7 +25,7 @@ const LoadingContainer = styled.View`
   top: 50%;
   left: 50%;
 `;
-export const RestaurantScreen = () => {
+export const RestaurantScreen = ({ navigation }) => {
   const restaurantContext = useContext(RestaurantsContext);
   return (
     <SafeAreaViewWrapper>
@@ -39,7 +39,11 @@ export const RestaurantScreen = () => {
         <FlatList
           data={restaurantContext.restaurants}
           renderItem={({ item }) => {
-            return <RestaurantInfo restaurant={item} />;
+            return (
+              <Pressable onPress={() => navigation}>
+                <RestaurantInfo restaurant={item} />
+              </Pressable>
+            );
           }}
           keyExtractor={(item) => {
             item.name;
