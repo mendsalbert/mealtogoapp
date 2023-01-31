@@ -26,6 +26,12 @@ export const Search = () => {
         onSubmitEditing={() => {
           search(searchKeyword);
         }}
+        onChangeText={(text) => {
+          if (!text.length) {
+            return;
+          }
+          setsearchKeyword(text);
+        }}
       />
     </SearchWrapper>
   );
