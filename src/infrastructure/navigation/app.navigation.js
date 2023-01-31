@@ -4,6 +4,7 @@ import { RestaurantScreen } from "../../features/restaurant/screens/restaurants.
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { RestaurantNavigator } from "./restaurant.navigator";
 
 export const AppNavigation = () => {
   //fake screens
@@ -39,7 +40,7 @@ export const AppNavigation = () => {
           tabBarInactiveTintColor: "gray",
         })}
       >
-        <Tab.Screen name="Restaurant" component={RestaurantScreen} />
+        <Tab.Screen name="Restaurant" component={RestaurantNavigator} />
         <Tab.Screen name="Maps" component={Maps} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
