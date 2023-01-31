@@ -1,6 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { RestaurantScreen } from "../../features/restaurant/screens/restaurants.screen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export const AppNavigation = () => {
   //fake screens
