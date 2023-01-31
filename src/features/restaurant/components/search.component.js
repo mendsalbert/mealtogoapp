@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
+import { LocationContext } from "../../../services/location/location.context";
 
 const SearchBar = styled(Searchbar)`
   width: 100%;
@@ -15,7 +16,11 @@ const SearchWrapper = styled.View`
 `;
 
 export const Search = () => {
-  <SearchWrapper>
-    <SearchBar />
-  </SearchWrapper>;
+  const { keyword } = useContext(LocationContext);
+  const [searchKeyword, setsearchKeyword] = useState(keyword);
+  return (
+    <SearchWrapper>
+      <SearchBar placeholder="Search for a location" value={searchKeyword} />
+    </SearchWrapper>
+  );
 };

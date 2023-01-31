@@ -6,6 +6,7 @@ import { RestaurantInfo } from "../components/restaurant-info-card.components";
 import styled from "styled-components/native";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
+import { Search } from "../components/search.component";
 
 const SafeAreaViewWrapper = styled(SafeAreaView)`
   flex: 1;
