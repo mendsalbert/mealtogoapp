@@ -33,6 +33,7 @@ import {
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { Navigation } from "./src/infrastructure/navigation";
+import { AuthenticationContext } from "./src/services/authentication/authentication.context";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
@@ -65,11 +66,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <LocationContextProvider>
-        <RestaurantsContextProvider>
-          <Navigation />
-        </RestaurantsContextProvider>
-      </LocationContextProvider>
+      <AuthenticationContext>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Navigation />
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
+      </AuthenticationContext>
     </ThemeProvider>
   );
 }
