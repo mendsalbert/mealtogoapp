@@ -33,25 +33,28 @@ import {
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { Navigation } from "./src/infrastructure/navigation";
-import { AuthenticationContext } from "./src/services/authentication/authentication.context";
+import {
+  AuthenticationContext,
+  AuthenticationContextProvider,
+} from "./src/services/authentication/authentication.context";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
-  React.useEffect(() => {
-    signInWithEmailAndPassword(auth, "mendsalbert@gmail.com", "1234567")
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        setIsAuthenticated(true);
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  }, []);
+  // React.useEffect(() => {
+  //   signInWithEmailAndPassword(auth, "mendsalbert@gmail.com", "1234567")
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       setIsAuthenticated(true);
+  //       console.log(user);
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log(errorMessage);
+  //     });
+  // }, []);
 
   const [oswaldLoaded] = oswaldloaded({
     Oswald_400Regular,
@@ -66,13 +69,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthenticationContext>
+      <AuthenticationContextProvider>
         <LocationContextProvider>
           <RestaurantsContextProvider>
             <Navigation />
           </RestaurantsContextProvider>
         </LocationContextProvider>
-      </AuthenticationContext>
+      </AuthenticationContextProvider>
     </ThemeProvider>
   );
 }
